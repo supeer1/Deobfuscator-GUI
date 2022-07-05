@@ -15,17 +15,11 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.tree.ClassNode;
-import uwu.narumi.deobfuscator.Deobfuscator;
-import uwu.narumi.deobfuscator.transformer.Transformer;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class ComposedLoader {
 
@@ -44,7 +38,7 @@ public class ComposedLoader {
     public ArrayList<String> load(){
         String content = new String(this.transformerBytes);
         ArrayList<String> transformers = new ArrayList<>();
-        ArrayList<String> transformerQueue = keys(content);
+        ArrayList<String> transformerQueue = queue(content);
         ArrayList<String> allTransformers = new ArrayList<>();
         String[] sp = content.split("\n");
 
@@ -82,7 +76,7 @@ public class ComposedLoader {
         return transformers;
     }
 
-    private ArrayList<String> keys(String content){
+    private ArrayList<String> queue(String content){
         String[] sp = content.split(",");
         ArrayList<String> keys = new ArrayList<>();
         for(int i = 0; i < sp.length; i ++){
