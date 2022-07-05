@@ -1,4 +1,7 @@
 # Deobfuscator-GUI
+
+> OpenJDK 17.0.1
+
 gui for narumii's deobfuscator
 
 ## How it works?
